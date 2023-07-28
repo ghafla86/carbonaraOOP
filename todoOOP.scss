@@ -1,0 +1,251 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	--first-color: #10002b;
+	--second-color: #240046;
+	--third-color: #3c096c;
+	--fourth-color: #5a189a;
+	--fifth-color: #7b2cbf;
+	--error-color: #ff0909;
+	--bright-font-color: #ffffff;
+	--dark-font-color: #251c1c;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	height: 100vh;
+	width: 100vw;
+	background-color: #333;
+	font-family: 'Bruno Ace SC', cursive;
+}
+
+button {
+	cursor: pointer;
+	font-family: 'Bruno Ace SC', cursive;
+}
+
+input {
+	margin: 10px;
+	padding: 5px 10px;
+	width: 80%;
+}
+
+.container {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	flex-direction: column;
+	min-height: 400px;
+	min-width: 600px;
+	margin: 20px;
+	border-radius: 10px;
+	box-shadow: 2px 2px 5px 1px #10002b;
+	background-color: var(--second-color);
+	z-index: 0;
+
+	// border: 1px solid black;/
+}
+
+.todo__edit-menu {
+	position: absolute;
+	left: 50%;
+	top: 450px;
+	transform: translate(-50%, -50%);
+	display: flex;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	width: 400px;
+	height: 120px;
+	border-radius: 10px;
+	background-color: var(--first-color);
+	box-shadow: 0 0 5px 3px #1e6091;
+	// animation: glow 2s linear infinite;
+	z-index: 15;
+
+	h4 {
+		color: var(--bright-font-color);
+	}
+
+	.todo__edit-body {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		.todo__edit-input {
+			width: 300px;
+		}
+	}
+
+	.todo__edit-box-btn {
+		margin: 5px;
+		padding: 5px;
+		border-radius: 5px;
+		border: none;
+		background-color: var(--fourth-color);
+		transition: transform 0.3s;
+
+		&:hover {
+			transform: scale(1.2);
+		}
+	}
+
+	.todo__edit-error {
+		text-align: center;
+		display: block;
+		color: var(--error-color);
+	}
+}
+
+.edit-menu-active {
+	display: flex;
+}
+
+.done,
+.change {
+	color: green;
+}
+
+.edit {
+	color: chocolate;
+}
+
+.delete,
+.cancel {
+	color: red;
+}
+
+.todo__shadow {
+	display: none;
+	position: absolute;
+	background-color: rgb(0, 0, 0, 0.7);
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+}
+
+.shadow-active {
+	display: block;
+}
+
+.todo__header {
+	height: 100px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	background-color: var(--first-color);
+	// border: 1px solid black;
+
+	&-input {
+		margin: 10px;
+		padding: 5px 10px;
+		width: 80%;
+	}
+
+	&-btn {
+		padding: 5px 10px;
+	}
+}
+
+.todo__body {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	flex-direction: column;
+	padding: 10px;
+	width: 90%;
+	color: var(--bright-font-color);
+	// border: 1px solid black;
+
+	h2 {
+		margin: 0px 0px 10px;
+	}
+
+	&-error {
+		display: none;
+		margin-bottom: 10px;
+		color: var(--error-color);
+	}
+
+	.show-error {
+		display: block;
+	}
+
+	&-box {
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		width: 100%;
+		margin: 5px;
+		background-color: var(--third-color);
+		border-radius: 5px;
+
+		&-span {
+			margin: 5px;
+			width: 70%;
+			height: 20px;
+		}
+
+		&-btn {
+			margin: 5px;
+			padding: 5px;
+			border-radius: 5px;
+			border: none;
+			background-color: var(--fourth-color);
+			transition: transform 0.3s;
+
+			&:hover {
+				transform: scale(1.2);
+			}
+		}
+	}
+
+	.task-done {
+		color: var(--dark-font-color);
+		text-decoration: line-through;
+	}
+}
+
+.todo__delete-all {
+	display: none;
+	align-self: center;
+	justify-self: flex-end;
+	padding: 10px;
+	background-color: var(--fifth-color);
+	border-radius: 10px;
+	border: 1px solid black;
+}
+
+@keyframes glow {
+	0% {
+		box-shadow: 0 0 5px 2px #1e6091;
+	}
+	20% {
+		box-shadow: 0 0 5px 3px #1e6091;
+	}
+	40% {
+		box-shadow: 0 0 5px 4px #1e6091;
+	}
+	60% {
+		box-shadow: 0 0 5px 3px #1e6091;
+	}
+	80% {
+		box-shadow: 0 0 5px 2px #1e6091;
+	}
+	100% {
+		box-shadow: 0 0 5px 1px #1e6091;
+	}
+}
+
+// zmieniac display dla edit menu, shadow i delete btn
